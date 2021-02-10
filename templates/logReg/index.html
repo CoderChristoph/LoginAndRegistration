@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'logReg/css/mainStyle.css' %}">
+</head>
+<body>
+	<div id="container">
+		<div>
+			<h1 class="mgB2P">Registration</h1>
+			<form action='/checkLogin' method='POST'>
+				{% csrf_token %}
+				<div class="labelCol">
+					<p>First Name: </p>
+				</div>
+				<div class="inputCol">
+					<input type="text" name="fName">
+				</div>
+				<div class="labelCol"
+					<p>Last Name: </p>
+				</div>
+
+				<div class="inputCol">
+					<input type="text" name="lName">
+				</div>
+
+				<div class="labelCol">
+					<p>Email: </p>
+				</div>
+
+				<div class="inputCol">
+					<input type="text" name="email">
+				</div>
+
+				<div class="labelCol">
+					<p>Password: </p>
+				</div>
+
+				<div class="inputCol">
+					<input type="password" name="password">
+				</div>
+
+				<div class="labelCol">
+					<p>Confirm Password: </p>
+				</div>
+
+				<div class="inputCol">
+					<input type="password" name="confirmPW">
+				</div>
+
+				<div class="cfb"></div>
+
+				<div>
+					<input type="hidden" name="hidden" value="Register" class="submitButton">
+					<input type="submit" name="submit" value="Register" class="submitButton">
+				</div>
+
+				<div class="cfb"></div>
+			</form>
+		</div>
+
+		<h1 class="mgB2P mbgT2P">Login</h1>
+		<form action="/checkLogin" method="POST">
+			{% csrf_token %}
+			<div class="labelCol">
+				<p>Email: </p>
+			</div>
+
+			<div class="inputCol">
+				<input type="text" name="LEmail">
+			</div>
+
+			<div class="labelCol">
+				<p>Password: </p>
+			</div>
+
+			<div class="inputCol">
+				<input type="password" name="LPassword">
+			</div>
+			<div class="cfb"></div>
+
+			<div>
+				<input type="hidden" name="hidden" value="Login">
+				<input type="submit" name="submit" value="Login" class="submitButton">
+			</div>
+			<div class="cfb"></div>			
+		</form>
+
+		{% for message in messages %}
+			<span>{{message}}</span>
+		{% endfor %}
+	</div>
+
+</body>
+</html>

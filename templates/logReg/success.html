@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'logReg/css/mainStyle.css' %}">
+</head>
+<body>
+	<div id="container">
+		<h1 class="mgB10">Success! Welcome, {{request.session.F_name}}</h1>
+
+		{% for message in messages %}
+		<p class="mgB10 successColor">{{message}}</p>
+		{% endfor %}
+
+	</div>
+
+</body>
+</html>
